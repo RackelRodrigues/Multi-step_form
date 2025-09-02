@@ -1,0 +1,29 @@
+@use "../../styles/global.scss" as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+.primary {
+  background-color: transparent;
+  color: $primary-blue-950;
+}
+.secondary {
+  background-color: $primary-blue-950;
+  color: $white;
+}
+.terciary {
+  background-color: $primary-Purple-600;
+  color: $white;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

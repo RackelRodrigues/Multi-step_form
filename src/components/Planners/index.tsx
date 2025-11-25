@@ -1,14 +1,20 @@
+import { PlannersDTO } from "../../DTO/PlannersDTO";
+import { StepsDTO } from "../../DTO/StepsDTO";
 import styles from "./styles.module.scss";
 
-interface props {
-  name: string;
-  imageURL: string;
-  price: number;
-  isActive?: boolean;
+interface Props extends PlannersDTO {
   onClick: () => void;
 }
 
-const Planners = ({ name, price, imageURL, isActive, onClick }: props) => {
+const Planners = ({
+  name,
+  priceMonth,
+  priceYear,
+  imageURL,
+  isActive,
+  onClick,
+  hasFrequency,
+}: Props) => {
   return (
     <div
       onClick={onClick}
@@ -18,8 +24,11 @@ const Planners = ({ name, price, imageURL, isActive, onClick }: props) => {
     >
       <img src={imageURL} className={styles.img} />
       <div className={styles.containerInfo}>
-        <h4>{name}</h4>
-        <p>${price}/mo</p>
+        <h1>{name}</h1>
+
+        {hasFrequency ? <p>${priceYear}/yr</p> : <p>${priceMonth}/mo</p>}
+
+        {hasFrequency && <span>2 months free</span>}
       </div>
     </div>
   );

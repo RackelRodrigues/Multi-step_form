@@ -1,26 +1,45 @@
 export const variablesPlans = [
-  { name: "Arcade", price: 9, url: "/images/icon-arcade.svg" },
-  { name: "Advanced", price: 12, url: "/images/icon-advanced.svg" },
-  { name: "Pro", price: 15, url: "/images/icon-pro.svg" },
+  {
+    name: "Arcade",
+    priceMonth: 9,
+    priceYear: 90,
+    url: "/images/icon-arcade.svg",
+  },
+  {
+    name: "Advanced",
+    priceMonth: 12,
+    priceYear: 120,
+    url: "/images/icon-advanced.svg",
+  },
+  { name: "Pro", priceMonth: 15, priceYear: 150, url: "/images/icon-pro.svg" },
 ];
 
 export const variablesAddOns = [
   {
     nameAddOn: "Online service",
     descrition: "Access to multiplayer games",
-    price: 11,
-    planType: "mo",
+    priceMonth: 1,
+    priceYear: 10,
+    // planYearly: "yr",
+    // planMonthly: "mo",
+    promotion: "2 months free",
   },
   {
     nameAddOn: "Larger storage",
     descrition: "Extra 1TB of cloud save",
-    price: 12,
-    PlanType: "mo",
+    priceMonth: 2,
+    priceYear: 20,
+    // planYearly: "yr",
+    // planMonthly: "mo",
+    promotion: "2 months free",
   },
   {
     nameAddOn: "Customizable Profile",
     descrition: "Custom theme on your profile",
-    price: 12,
-    PlanType: "mo",
+    priceMonth: 2,
+    priceYear: 20,
+    // planYearly: "yr",
+    // planMonthly: "mo",
+    promotion: "2 months free",
   },
 ];

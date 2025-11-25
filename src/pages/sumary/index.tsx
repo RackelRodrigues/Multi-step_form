@@ -1,8 +1,9 @@
 import Button from "../../components/button";
-import styles from "./styles..module.scss";
+import styles from "./styles.module.scss";
 import "../../styles/global.scss";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
+import { set } from "react-hook-form";
 
 const Sumary = () => {
   const [total, setTotal] = useState(0);
@@ -10,9 +11,21 @@ const Sumary = () => {
 
   const handleSum = () => {
     const totalAddOns =
-      AddOns?.reduce((acc, addon) => acc + addon.price, 0) ?? 0;
-    console.log("Total Add-ons:", totalAddOns);
-    setTotal(plan + totalAddOns);
+      AddOns?.reduce(
+        (acc, addon) =>
+          acc + (planType === "monthly" ? addon.priceMonth : addon.priceYear),
+        0
+      ) ?? 0;
+
+    setTotal(
+      (planType === "monthly" ? plan?.priceMonth ?? 0 : plan?.priceYear ?? 0) +
+        totalAddOns
+    );
+  };
+
+  const changePlan = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setSteps(2);
   };
 
   useEffect(() => {
@@ -28,11 +41,15 @@ const Sumary = () => {
         <div>
           <div className={styles.containerInfo}>
             <h4>Arcade({planType})</h4>
-            <h4>
-              ${plan}/{planType === "monthly" ? "mo" : "yro"}
-            </h4>
+            {planType === "monthly" ? (
+              <h4>${plan?.priceMonth}/mo</h4>
+            ) : (
+              <h4>${plan?.priceYear}/yr</h4>
+            )}
           </div>
-          <a href="">Change</a>
+          <a href="" onClick={changePlan}>
+            Change
+          </a>
         </div>
 
         <span className={styles.line} />
@@ -40,7 +57,8 @@ const Sumary = () => {
           <div key={index} className={styles.containerInfo}>
             <p className={styles.label}>{addon.nameAddOn}</p>
             <p className={styles.price}>
-              +${addon.price}/{planType === "monthly" ? "mo" : "yro"}
+              +${planType === "monthly" ? addon.priceMonth : addon.priceYear}
+              {planType === "monthly" ? "/mo" : "/yr"}
             </p>
           </div>
         ))}
@@ -55,17 +73,19 @@ const Sumary = () => {
       </div>
       <div className={styles.containerInfo}>
         <Button
-          variant="primary"
-          Value="Go Back"
-          isDisabled={false}
+          className="primary"
+          disabled={false}
           onClick={() => setSteps(steps - 1)}
-        />
+        >
+          Go Back
+        </Button>
         <Button
-          variant="terciary"
-          Value="Confirm"
-          isDisabled={false}
-          onClick={() => console.log("Confirm")}
-        />
+          className="terciary"
+          disabled={false}
+          onClick={() => setSteps(steps + 1)}
+        >
+          Confirm
+        </Button>
       </div>
     </div>
   );

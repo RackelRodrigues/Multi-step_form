@@ -1,21 +1,28 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { GlobalContext } from "../../contexts/globalContext";
-interface props {
+
+interface Props {
   checked?: boolean;
   onChange?: () => void;
   names: string[];
 }
 
-const ToggleSwitch = ({ checked, onChange, names }: props) => {
+const ToggleSwitch = ({ checked, onChange, names }: Props) => {
   const { setPlanType } = useContext(GlobalContext);
-
   const [ischecked, setisChecked] = useState(false);
+
+  useEffect(() => {
+    setPlanType("monthly");
+  }, []);
+  // const [plantype, setplanType] = useState("monthly");
 
   const handleClick = () => {
     setisChecked((prev) => !prev);
+    // console.log(ischecked);
+    // console.log(ischecked ? "monthly" : "yearly");
+
     ischecked ? setPlanType("monthly") : setPlanType("yearly");
-    console.log(ischecked);
   };
   return (
     <div className={styles.container}>

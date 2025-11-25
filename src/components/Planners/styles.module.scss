@@ -21,6 +21,7 @@
 
 .isActive {
   border: 2px solid $primary-blue-300;
+  background-color: $primary-blue-200;
 }
 
 .containerInfo {
@@ -29,7 +30,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  h4 {
+  h1 {
     font-size: 1.5rem;
     font-weight: 700;
     color: $primary-blue-950;
@@ -38,6 +39,13 @@
 
   p {
     font-weight: 300;
-    color: $neutral-Purple-200;
+    color: $neutral-Grey-500;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: $primary-blue-950;
+    font-weight: 500;
+    margin: 0.5rem 0 0.5rem 0;
   }
 }

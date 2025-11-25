@@ -1,40 +1,40 @@
+import { AdditionalDTO } from "../../DTO/AdditionalDTO";
+
 import styles from "./styles.module.scss";
 
-interface props {
-  // id: number | ;
-  nameAddOn: string;
-  descrition: string;
-  price: number;
-  PlanType: string;
-  onCheck?: boolean;
-  onClick?: (name: string) => void;
+interface props extends AdditionalDTO {
+  onClick?: () => void;
 }
 
 const Additional = ({
-  nameAddOn,
-  descrition,
-  price,
-  PlanType,
-  onCheck,
+  name,
+  description,
+  priceMonth,
+  priceYear,
+  checked,
   onClick,
 }: props) => {
-  const handleClick = () => {
-    if (onClick) onClick(nameAddOn);
-  };
+  // const handleClick = (Additional: AdditionalDTO) => {
+  //   console.log("Clicked on:", name);
+  //   console.log(Additional);
+  //   if (onClick) onClick(Additional.name);
+  // };
   return (
     <div
-      className={`${styles.container} ${onCheck ? styles.active : ""}`}
-      onClick={handleClick}
+      className={`${styles.container} ${checked ? styles.active : ""}`}
+      onClick={onClick}
     >
-      <input type="checkbox" checked={onCheck} readOnly />
+      <input type="checkbox" checked={checked} readOnly />
       <div className={styles.info}>
         <div>
-          <h2>{nameAddOn}</h2>
-          <p className={styles.description}>{descrition}</p>
+          <h2>{name}</h2>
+          <p className={styles.description}>{description}</p>
         </div>
-        <p className={styles.price}>
-          +${price}/{PlanType}
-        </p>
+        {priceMonth ? (
+          <p className={styles.price}>+${priceMonth}/mo</p>
+        ) : (
+          <p className={styles.price}>+${priceYear}/yr</p>
+        )}
       </div>
     </div>
   );

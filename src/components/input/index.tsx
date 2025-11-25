@@ -1,24 +1,25 @@
 import styles from "./styles.module.scss";
-import React from "react";
+import { ComponentProps } from "react";
 
-//aqui estou dizendo que ele vai pegar todas as propriedades que existem no input
-interface props extends React.InputHTMLAttributes<HTMLInputElement> {
-  placeholder: string;
-  isError?: boolean;
-  type: string;
-}
+interface ContextProps extends ComponentProps<"div"> {}
 
-const Input = ({ placeholder, onChange, isError, type, ...props }: props) => {
+export function Root({ ...props }: ContextProps) {
   return (
-    <div className={styles.Container}>
-      <input
-        type={type}
-        className={`${styles.input} ${isError ? styles.inputError : ""}`}
-        placeholder={placeholder}
-        {...props}
-      />
+    <div className={styles.Container} {...props}>
+      {props.children}
     </div>
   );
-};
+}
 
-export default Input;
+interface Inputprops extends ComponentProps<"input"> {
+  isError?: boolean;
+}
+
+export function Field({ isError, ...props }: Inputprops) {
+  return (
+    <input
+      className={`${styles.input} ${isError ? styles.inputError : ""}`}
+      {...props}
+    />
+  );
+}

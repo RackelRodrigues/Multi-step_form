@@ -1,12 +1,9 @@
+import { StepsDTO } from "../../DTO/StepsDTO";
 import styles from "./styles.module.scss";
 
-interface props {
-  namePlan: string;
-  stepNumber: number;
-  isActive?: boolean;
-}
+interface Props extends StepsDTO {}
 
-const Steps = ({ namePlan, stepNumber, isActive }: props) => {
+const Steps = ({ namePlan, stepNumber, isActive }: Props) => {
   return (
     <div className={styles.container}>
       <span className={`${styles.circle} ${isActive ? styles.active : ""}`}>

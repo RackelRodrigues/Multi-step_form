@@ -1,10 +1,11 @@
 import styles from "./styled.module.scss";
 import Steps from "../../components/steps";
 
-import Plans from "../../pages/Plans/index";
+import SelectPlans from "../selectPlans";
 import PersonalInfo from "../../pages/PersonalInfo";
-import Addons from "../../pages/addons";
+import AddOns from "../Add-Ons";
 import Sumary from "../../pages/sumary";
+import ThankYou from "../ThankYou";
 
 import { GlobalContext } from "../../contexts/globalContext";
 import { useContext } from "react";
@@ -35,9 +36,10 @@ function AppContent() {
 
       <div className={styles.pages}>
         {(steps === 1 || steps === 0) && <PersonalInfo />}
-        {steps === 2 && <Plans />}
-        {steps === 3 && <Addons />}
+        {steps === 2 && <SelectPlans />}
+        {steps === 3 && <AddOns />}
         {steps === 4 && <Sumary />}
+        {steps === 5 && <ThankYou />}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import "../../styles/global.scss";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
+import { UserDTO } from "../../DTO/UserDTO";
 
 const PersonalInfo = () => {
   const { steps, setSteps, name, email, phone, setEmail, setName, setPhone } =
@@ -32,7 +33,7 @@ const PersonalInfo = () => {
     }
   }, [steps, name, email, phone, reset]);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: UserDTO) => {
     setEmail(data.email);
     setName(data.name);
     setPhone(data.phone);
@@ -47,7 +48,7 @@ const PersonalInfo = () => {
       <div className={styles.title}>
         <h1 className="Title">Personal Info</h1>
         <p className="Subtitle">
-          please provide your name,email address, and phine number.
+          please provide your name,email address, and phone number.
         </p>
       </div>
       <form className={styles.info}>
@@ -62,7 +63,7 @@ const PersonalInfo = () => {
           <Input.Root>
             <Input.Field
               type="text"
-              placeholder="name"
+              placeholder="e.g. Stephen King"
               isError={!!errors.name}
               aria-invalid={errors.name ? "true" : "false"}
               {...register("name", { required: "This field is required" })}
@@ -80,7 +81,7 @@ const PersonalInfo = () => {
             <Input.Field
               type="email"
               isError={!!errors.email}
-              placeholder=""
+              placeholder="e.g stephenking@loren.com"
               aria-invalid={errors.email ? "true" : "false"}
               {...register("email", { required: "This field is required" })}
             />

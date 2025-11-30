@@ -1,14 +1,15 @@
 import { createContext, ReactNode, useState } from "react";
 import { PlannersDTO } from "../DTO/PlannersDTO";
 import Planners from "../components/Planners";
+import { AdditionalDTO } from "../DTO/AdditionalDTO";
 // import { AdditionalDTO } from "../DTO/AdditionalDTO";
 
-type Addon = {
-  nameAddOn: string;
-  descrition: string;
-  priceMonth: number;
-  priceYear: number;
-};
+// type Addon = {
+//   name: string;
+//   description: string;
+//   priceMonth: number;
+//   priceYear: number;
+// };
 
 type GlobalContextType = {
   steps: number;
@@ -29,8 +30,8 @@ type GlobalContextType = {
   planType: string;
   setPlanType: (type: string) => void;
 
-  AddOns?: Addon[];
-  setAddOns?: (addOns: Addon[]) => void;
+  addOns?: AdditionalDTO[];
+  setAddOns?: (addOns: AdditionalDTO[]) => void;
 };
 
 type GlobalProviderProps = {
@@ -56,7 +57,7 @@ const initialValue: GlobalContextType = {
   planType: "",
   setPlanType: () => {},
 
-  AddOns: [],
+  addOns: [],
   setAddOns: () => {},
 };
 
@@ -69,7 +70,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const [phone, setPhone] = useState(initialValue.phone);
   const [planType, setPlanType] = useState(initialValue.planType);
   const [plan, setPlan] = useState(initialValue.plan);
-  const [addOns, setAddOns] = useState<Addon[]>([]);
+  const [addOns, setAddOns] = useState<AdditionalDTO[]>([]);
 
   return (
     <GlobalContext.Provider
@@ -92,7 +93,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
         plan,
         setPlan,
 
-        AddOns: addOns,
+        addOns,
         setAddOns,
       }}
     >

@@ -45,12 +45,17 @@
     }
   }
 
+  @include responsive($md) {
+    // tablet
+    // padding: 15px;
+    // font-size: 16px;
+  }
+
   .pages {
     width: 100%;
     // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed red;
   }
 }

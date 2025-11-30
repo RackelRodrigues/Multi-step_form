@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Additional from "../../components/additional";
 import Button from "../../components/button";
 import styles from "./styled.module.scss";
@@ -8,53 +8,49 @@ import { useContext } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
 import { AdditionalDTO } from "../../DTO/AdditionalDTO";
 
-interface Props extends AdditionalDTO {
-  nameAddOn: string;
-  descrition: string;
-  priceMonth: number;
-  priceYear: number;
-  PlanType: string;
-  promotion?: string;
-}
+interface Props extends AdditionalDTO {}
 
 const Addons = () => {
-  const { steps, setSteps, AddOns, setAddOns, planType } =
+  const { steps, setSteps, addOns, setAddOns, planType } =
     useContext(GlobalContext);
   const [selectedAddOns, setSelectedAddOns] = useState<AdditionalDTO[]>([]);
 
-  function handleClick(Addon: any) {
-    console.log(Addon);
+  useEffect(() => {
+    if (steps === 3 && addOns !== undefined) {
+      setSelectedAddOns(addOns);
+    }
+  }, [steps]);
+
+  function handleClick(Addon: AdditionalDTO) {
     setSelectedAddOns((prev) => {
-      const exists = prev.find((item) => item.name === Addon.nameAddOn);
+      const exists = prev.find((item) => item.name === Addon.name);
 
       const updated = exists
-        ? prev.filter((item) => item.name !== Addon.nameAddOn)
+        ? prev.filter((item) => item.name !== Addon.name)
         : [...prev, Addon];
-      console.log("Updated Add-ons:", updated);
       if (setAddOns) setAddOns(updated);
 
       return updated;
     });
-
-    console.log("Clicked Add-on:", Addon);
-    console.log(selectedAddOns);
   }
 
-  // console.log("Selected Add-ons:", selectedAddOns);
   return (
     <div className={styles.container}>
-      <h1 className="Title">Pick Add-ons</h1>
-      <p className="Subtitle">Add-ons help enhance gaming experience.</p>
+      <div className={styles.title}>
+        <h1 className="Title">Pick Add-ons</h1>
+        <p className="Subtitle">Add-ons help enhance gaming experience.</p>
+      </div>
+
       <div className={styles.containerAdditional}>
         {variablesAddOns.map((addOn, index) => (
           <Additional
+            id={index}
             key={index}
-            name={addOn.nameAddOn}
-            description={addOn.descrition}
+            name={addOn.name}
+            description={addOn.description}
             priceMonth={planType === "monthly" ? addOn.priceMonth : 0}
             priceYear={planType === "yearly" ? addOn.priceYear : 0}
-            // hasFrequency={true}
-            checked={selectedAddOns.some((n) => n.name === addOn.nameAddOn)}
+            checked={selectedAddOns.some((n) => n.id === addOn.id)}
             onClick={() => handleClick(addOn)}
           />
         ))}
@@ -67,11 +63,7 @@ const Addons = () => {
         >
           Go Back
         </Button>
-        <Button
-          className="secondary"
-          disabled={!selectedAddOns.length}
-          onClick={() => setSteps(steps + 1)}
-        >
+        <Button className="secondary" onClick={() => setSteps(steps + 1)}>
           Next step
         </Button>
       </div>

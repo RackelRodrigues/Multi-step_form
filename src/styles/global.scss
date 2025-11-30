@@ -13,6 +13,13 @@ $neutral-Blue-100: hsl(218, 100%, 97%);
 $neutral-Blue-50: hsl(231, 100%, 99%);
 $white: hsl(0, 100%, 100%);
 
+// Breakpoints
+$xl: 1200px; // desktop grande
+$lg: 992px; // desktop normal
+$md: 768px; // tablet
+$sm: 576px; // celular grande
+$xs: 380px; // celular pequeno
+
 * {
   margin: 0;
   padding: 0;

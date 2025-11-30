@@ -14,11 +14,6 @@ const Additional = ({
   checked,
   onClick,
 }: props) => {
-  // const handleClick = (Additional: AdditionalDTO) => {
-  //   console.log("Clicked on:", name);
-  //   console.log(Additional);
-  //   if (onClick) onClick(Additional.name);
-  // };
   return (
     <div
       className={`${styles.container} ${checked ? styles.active : ""}`}

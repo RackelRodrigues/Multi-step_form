@@ -3,15 +3,14 @@ import styles from "./styles.module.scss";
 import "../../styles/global.scss";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
-import { set } from "react-hook-form";
 
 const Sumary = () => {
   const [total, setTotal] = useState(0);
-  const { steps, setSteps, AddOns, plan, planType } = useContext(GlobalContext);
+  const { steps, setSteps, addOns, plan, planType } = useContext(GlobalContext);
 
   const handleSum = () => {
     const totalAddOns =
-      AddOns?.reduce(
+      addOns?.reduce(
         (acc, addon) =>
           acc + (planType === "monthly" ? addon.priceMonth : addon.priceYear),
         0
@@ -30,13 +29,16 @@ const Sumary = () => {
 
   useEffect(() => {
     handleSum();
-  }, [AddOns, plan]);
+  }, [addOns, plan]);
   return (
     <div>
-      <h1 className="Title">Finishing up</h1>
-      <p className="Subtitle">
-        Double-check everything looks OK before confirming.
-      </p>
+      <div className={styles.title}>
+        <h1 className="Title">Finishing up</h1>
+        <p className="Subtitle">
+          Double-check everything looks OK before confirming.
+        </p>
+      </div>
+
       <div className={styles.container}>
         <div>
           <div className={styles.containerInfo}>
@@ -53,11 +55,11 @@ const Sumary = () => {
         </div>
 
         <span className={styles.line} />
-        {AddOns?.map((addon, index) => (
+        {addOns?.map((addOn, index) => (
           <div key={index} className={styles.containerInfo}>
-            <p className={styles.label}>{addon.nameAddOn}</p>
+            <p className={styles.label}>{addOn.name}</p>
             <p className={styles.price}>
-              +${planType === "monthly" ? addon.priceMonth : addon.priceYear}
+              +${planType === "monthly" ? addOn.priceMonth : addOn.priceYear}
               {planType === "monthly" ? "/mo" : "/yr"}
             </p>
           </div>

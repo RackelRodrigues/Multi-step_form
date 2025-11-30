@@ -13,16 +13,26 @@
 .primary {
   background-color: transparent;
   color: $neutral-Grey-500;
+
+  &:hover {
+    color: $primary-blue-950;
+  }
 }
+
 .secondary {
   background-color: $primary-blue-950;
   color: $white;
 }
+
 .terciary {
   background-color: $primary-Purple-600;
   color: $white;
 }
 
+.secondary:hover,
+.terciary:hover {
+  opacity: 0.5;
+}
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

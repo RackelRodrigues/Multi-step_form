@@ -1,5 +1,4 @@
 import { PlannersDTO } from "../../DTO/PlannersDTO";
-import { StepsDTO } from "../../DTO/StepsDTO";
 import styles from "./styles.module.scss";
 
 interface Props extends PlannersDTO {
@@ -18,6 +17,7 @@ const Planners = ({
   return (
     <div
       onClick={onClick}
+      // onDoubleClick={on}
       className={`${styles.container} ${
         isActive ? styles.isActive : styles.notActive
       }`}

@@ -4,37 +4,34 @@ import Button from "../../components/button";
 import ToggleSwitch from "../../components/ToggleSwitch";
 import "../../styles/global.scss";
 import { variablesPlans } from "../../server/index";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
+import { PlannersDTO } from "../../DTO/PlannersDTO";
 
 const SelectPlans = () => {
-  const { steps, setSteps, setPlan, setPlanType, planType } =
+  const { steps, setSteps, setPlan, plan, setPlanType, planType } =
     useContext(GlobalContext);
 
-  const [activePlanPrice, setActivePlanPrice] = useState<number | null>(null);
-  console.log("planType:", planType);
+  const [activePlanPrice, setActivePlanPrice] = useState<PlannersDTO | null>(
+    null
+  );
 
   const nameSwitch = ["Monthly", " Yearly"];
 
-  const handlePrice = (plan: any) => {
-    console.log("Selected price:", plan);
-    // console.log(plan);
-    setActivePlanPrice(plan);
+  useEffect(() => {
+    if (plan !== null && steps === 2) {
+      setActivePlanPrice(plan);
+    }
+  }, [steps]);
 
-    console.log("Active plan price:", activePlanPrice);
+  const handlePrice = (plan: PlannersDTO) => {
+    setActivePlanPrice(plan);
     setPlan(plan);
   };
 
-  const handleToggle = (value: any) => {
-    console.log("entrou");
-    console.log("value:", value);
-
-    // setPlan(
-    //   type: plan.type === "monthly" ? "yearly" : "monthly",
-    // );
-  };
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.title}></div>
       <h1 className="Title">Select your plan</h1>
       <p className="Subtitle">
         You have the option of monthly or yearly biling.
@@ -47,17 +44,14 @@ const SelectPlans = () => {
             imageURL={plan.url}
             priceMonth={planType === "monthly" ? plan.priceMonth : 0}
             priceYear={planType === "yearly" ? plan.priceYear : 0}
-            isActive={
-              activePlanPrice ===
-              (planType === "monthly" ? plan.priceMonth : plan.priceYear)
-            }
+            isActive={activePlanPrice?.id === plan.id}
             hasFrequency={planType === "yearly"}
             onClick={() => handlePrice(plan)}
           />
         ))}
       </div>
       <div className={styles.switch}>
-        <ToggleSwitch names={nameSwitch} onChange={() => handleToggle} />
+        <ToggleSwitch names={nameSwitch} />
       </div>
       <div className={styles.containerButtons}>
         <Button

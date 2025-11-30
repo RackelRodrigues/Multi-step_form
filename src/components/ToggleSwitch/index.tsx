@@ -3,48 +3,50 @@ import styles from "./styles.module.scss";
 import { GlobalContext } from "../../contexts/globalContext";
 
 interface Props {
-  checked?: boolean;
-  onChange?: () => void;
   names: string[];
 }
 
-const ToggleSwitch = ({ checked, onChange, names }: Props) => {
-  const { setPlanType } = useContext(GlobalContext);
+const ToggleSwitch = ({ names }: Props) => {
+  const { setPlanType, steps, plan, planType } = useContext(GlobalContext);
   const [ischecked, setisChecked] = useState(false);
 
   useEffect(() => {
-    setPlanType("monthly");
-  }, []);
-  // const [plantype, setplanType] = useState("monthly");
+    if (steps === 2 && plan === null) {
+      setPlanType("monthly");
+      console.log("entrou no if ");
+    } else if (steps === 2 && plan !== null) {
+      setisChecked(planType === "yearly");
+      console.log("entrou no else if");
+    }
+  }, [steps]);
 
   const handleClick = () => {
+    console.log("click");
+    console.log(ischecked);
     setisChecked((prev) => !prev);
-    // console.log(ischecked);
-    // console.log(ischecked ? "monthly" : "yearly");
-
     ischecked ? setPlanType("monthly") : setPlanType("yearly");
   };
+
   return (
     <div className={styles.container}>
       <span
-        className={`${styles.label} ${!ischecked ? styles.activeLabel : ""}`}
+        className={`${styles.label} ${ischecked ? "" : styles.activeLabel}`}
       >
         {names[0]}
       </span>
       <label
         className={`${styles.toggleSwitchWrapper} ${
-          checked ? styles.checked : ""
+          ischecked ? styles.checked : ""
         }`}
         onClick={handleClick}
       >
         <input
           type="checkbox"
           className={styles.input}
-          checked={checked}
-          onChange={onChange}
+          checked={ischecked}
           readOnly
         />
-        <span className={styles.span}></span>
+        <span className={styles.span} onClick={handleClick}></span>
       </label>
       <span
         className={`${styles.label} ${ischecked ? styles.activeLabel : ""}`}

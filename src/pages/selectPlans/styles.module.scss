@@ -1,10 +1,22 @@
 @use "../../styles/global.scss" as *;
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .planners {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .switch {
@@ -13,7 +25,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: $neutral-Blue-100;
 }
 .containerButtons {
@@ -21,5 +32,5 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }

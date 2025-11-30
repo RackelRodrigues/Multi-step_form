@@ -1,9 +1,8 @@
 export interface AdditionalDTO {
-  id?: number;
+  id: number;
   name: string;
   description: string;
   priceMonth: number;
   priceYear: number;
-  // planType: "mo" | "yr";
-  checked: boolean;
+  checked?: boolean;
 }

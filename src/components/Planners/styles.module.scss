@@ -13,6 +13,10 @@
   margin: 1rem 0;
   border: 2px solid $neutral-Purple-200;
 
+  &:hover {
+    border: 2px solid $primary-blue-300;
+  }
+
   .img {
     width: 100%;
     max-width: 3rem;

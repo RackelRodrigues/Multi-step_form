@@ -35,27 +35,41 @@ const Addons = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <h1 className="Title">Pick Add-ons</h1>
-        <p className="Subtitle">Add-ons help enhance gaming experience.</p>
-      </div>
+    <div className={styles.containerMobile}>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h1 className="Title">Pick Add-ons</h1>
+          <p className="Subtitle">Add-ons help enhance gaming experience.</p>
+        </div>
 
-      <div className={styles.containerAdditional}>
-        {variablesAddOns.map((addOn, index) => (
-          <Additional
-            id={index}
-            key={index}
-            name={addOn.name}
-            description={addOn.description}
-            priceMonth={planType === "monthly" ? addOn.priceMonth : 0}
-            priceYear={planType === "yearly" ? addOn.priceYear : 0}
-            checked={selectedAddOns.some((n) => n.id === addOn.id)}
-            onClick={() => handleClick(addOn)}
-          />
-        ))}
+        <div className={styles.containerAdditional}>
+          {variablesAddOns.map((addOn, index) => (
+            <Additional
+              id={index}
+              key={index}
+              name={addOn.name}
+              description={addOn.description}
+              priceMonth={planType === "monthly" ? addOn.priceMonth : 0}
+              priceYear={planType === "yearly" ? addOn.priceYear : 0}
+              checked={selectedAddOns.some((n) => n.id === addOn.id)}
+              onClick={() => handleClick(addOn)}
+            />
+          ))}
+        </div>
+        <div className={styles.containerButtons}>
+          <Button
+            className="primary"
+            disabled={false}
+            onClick={() => setSteps(steps - 1)}
+          >
+            Go Back
+          </Button>
+          <Button className="secondary" onClick={() => setSteps(steps + 1)}>
+            Next step
+          </Button>
+        </div>
       </div>
-      <div className={styles.buttons}>
+      <div className={styles.containerButtonsMobile}>
         <Button
           className="primary"
           disabled={false}

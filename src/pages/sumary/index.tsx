@@ -31,49 +31,67 @@ const Sumary = () => {
     handleSum();
   }, [addOns, plan]);
   return (
-    <div>
-      <div className={styles.title}>
-        <h1 className="Title">Finishing up</h1>
-        <p className="Subtitle">
-          Double-check everything looks OK before confirming.
-        </p>
-      </div>
-
-      <div className={styles.container}>
-        <div>
-          <div className={styles.containerInfo}>
-            <h4>Arcade({planType})</h4>
-            {planType === "monthly" ? (
-              <h4>${plan?.priceMonth}/mo</h4>
-            ) : (
-              <h4>${plan?.priceYear}/yr</h4>
-            )}
-          </div>
-          <a href="" onClick={changePlan}>
-            Change
-          </a>
+    <div className={styles.containerMobile}>
+      <div className={styles.containerAll}>
+        <div className={styles.title}>
+          <h1 className="Title">Finishing up</h1>
+          <p className="Subtitle">
+            Double-check everything looks OK before confirming.
+          </p>
         </div>
 
-        <span className={styles.line} />
-        {addOns?.map((addOn, index) => (
-          <div key={index} className={styles.containerInfo}>
-            <p className={styles.label}>{addOn.name}</p>
-            <p className={styles.price}>
-              +${planType === "monthly" ? addOn.priceMonth : addOn.priceYear}
-              {planType === "monthly" ? "/mo" : "/yr"}
-            </p>
+        <div className={styles.container}>
+          <div>
+            <div className={styles.containerInfo}>
+              <h2>Arcade({planType})</h2>
+              {planType === "monthly" ? (
+                <h2>${plan?.priceMonth}/mo</h2>
+              ) : (
+                <h2>${plan?.priceYear}/yr</h2>
+              )}
+            </div>
+            <a href="" onClick={changePlan}>
+              Change
+            </a>
           </div>
-        ))}
+
+          <span className={styles.line} />
+          {addOns?.map((addOn, index) => (
+            <div key={index} className={styles.containerInfo}>
+              <p className={styles.label}>{addOn.name}</p>
+              <p className={styles.price}>
+                +${planType === "monthly" ? addOn.priceMonth : addOn.priceYear}
+                {planType === "monthly" ? "/mo" : "/yr"}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className={`${styles.containerInfo} ${styles.total}`}>
+          <p className={styles.label}>
+            Total (per {planType === "monthly" ? "month" : "year"})
+          </p>
+          <h3>
+            + ${total}/{planType === "monthly" ? "mo" : "yro"}
+          </h3>
+        </div>
+        <div className={styles.containerButtons}>
+          <Button
+            className="primary"
+            disabled={false}
+            onClick={() => setSteps(steps - 1)}
+          >
+            Go Back
+          </Button>
+          <Button
+            className="terciary"
+            disabled={false}
+            onClick={() => setSteps(steps + 1)}
+          >
+            Confirm
+          </Button>
+        </div>
       </div>
-      <div className={`${styles.containerInfo} ${styles.total}`}>
-        <p className={styles.label}>
-          Total (per {planType === "monthly" ? "month" : "year"})
-        </p>
-        <h3>
-          + ${total}/{planType === "monthly" ? "mo" : "yro"}
-        </h3>
-      </div>
-      <div className={styles.containerInfo}>
+      <div className={styles.containerButtonsMobile}>
         <Button
           className="primary"
           disabled={false}

@@ -9,7 +9,7 @@ const Steps = ({ namePlan, stepNumber, isActive }: Props) => {
       <span className={`${styles.circle} ${isActive ? styles.active : ""}`}>
         {stepNumber}
       </span>
-      <div>
+      <div className={styles.containerNames}>
         <h4 className={styles.step}>Step {stepNumber}</h4>
         <h2 className={styles.name}>{namePlan}</h2>
       </div>

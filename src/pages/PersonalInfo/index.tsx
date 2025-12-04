@@ -6,6 +6,7 @@ import "../../styles/global.scss";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
 import { UserDTO } from "../../DTO/UserDTO";
+import { formatPhone } from "../../lib/utils";
 
 const PersonalInfo = () => {
   const { steps, setSteps, name, email, phone, setEmail, setName, setPhone } =
@@ -44,69 +45,89 @@ const PersonalInfo = () => {
     }
   };
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <h1 className="Title">Personal Info</h1>
-        <p className="Subtitle">
-          please provide your name,email address, and phone number.
-        </p>
-      </div>
-      <form className={styles.info}>
-        <div>
-          <div className={styles.label}>
-            <label className={styles.label}>Name</label>
-            {errors.name && (
-              <span className={styles.labelError}>{errors.name.message}</span>
-            )}
-          </div>
+    <div className={styles.containerMobile}>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h1 className="Title">Personal Info</h1>
+          <p className="Subtitle">
+            please provide your name,email address, and phone number.
+          </p>
+        </div>
+        <form className={styles.info}>
+          <div>
+            <div className={styles.label}>
+              <label className={styles.label}>Name</label>
+              {errors.name && (
+                <span className={styles.labelError}>{errors.name.message}</span>
+              )}
+            </div>
 
-          <Input.Root>
-            <Input.Field
-              type="text"
-              placeholder="e.g. Stephen King"
-              isError={!!errors.name}
-              aria-invalid={errors.name ? "true" : "false"}
-              {...register("name", { required: "This field is required" })}
-            />
-          </Input.Root>
-        </div>
-        <div>
-          <div className={styles.label}>
-            <label className={styles.label}>Email Address</label>
-            {errors.email && (
-              <span className={styles.labelError}>{errors.email.message}</span>
-            )}
+            <Input.Root>
+              <Input.Field
+                type="text"
+                placeholder="e.g. Stephen King"
+                isError={!!errors.name}
+                aria-invalid={errors.name ? "true" : "false"}
+                {...register("name", { required: "This field is required" })}
+              />
+            </Input.Root>
           </div>
-          <Input.Root>
-            <Input.Field
-              type="email"
-              isError={!!errors.email}
-              placeholder="e.g stephenking@loren.com"
-              aria-invalid={errors.email ? "true" : "false"}
-              {...register("email", { required: "This field is required" })}
-            />
-          </Input.Root>
-        </div>
-        <div>
-          <div className={styles.label}>
-            <label className={styles.label}>Phone Number</label>
-            {errors.phone && (
-              <span className={styles.labelError}>{errors.phone.message}</span>
-            )}
+          <div>
+            <div className={styles.label}>
+              <label className={styles.label}>Email Address</label>
+              {errors.email && (
+                <span className={styles.labelError}>
+                  {errors.email.message}
+                </span>
+              )}
+            </div>
+            <Input.Root>
+              <Input.Field
+                type="email"
+                isError={!!errors.email}
+                placeholder="e.g stephenking@loren.com"
+                aria-invalid={errors.email ? "true" : "false"}
+                {...register("email", { required: "This field is required" })}
+              />
+            </Input.Root>
           </div>
-          <Input.Root>
-            <Input.Field
-              isError={!!errors.phone}
-              type="phone"
-              placeholder="e.g. +1 234 567 890"
-              aria-invalid={errors.phone ? "true" : "false"}
-              {...register("phone", { required: "This field is required" })}
-            />
-          </Input.Root>
-          `
+          <div>
+            <div className={styles.label}>
+              <label className={styles.label}>Phone Number</label>
+              {errors.phone && (
+                <span className={styles.labelError}>
+                  {errors.phone.message}
+                </span>
+              )}
+            </div>
+            <Input.Root>
+              <Input.Field
+                isError={!!errors.phone}
+                type="phone"
+                placeholder="e.g. +1 234 567 890"
+                aria-invalid={errors.phone ? "true" : "false"}
+                {...register("phone", {
+                  required: "This field is required",
+                  onChange: (e) => {
+                    const formatted = formatPhone(e.target.value);
+                    e.target.value = formatted;
+                  },
+                })}
+              />
+            </Input.Root>
+          </div>
+        </form>
+        <div className={styles.containerButton}>
+          <Button
+            type="submit"
+            onClick={() => handleSubmit(onSubmit)()}
+            className="secondary"
+          >
+            Next step
+          </Button>
         </div>
-      </form>
-      <div className={styles.Button}>
+      </div>
+      <div className={styles.containerButtonMobile}>
         <Button
           type="submit"
           onClick={() => handleSubmit(onSubmit)()}

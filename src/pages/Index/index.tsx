@@ -26,12 +26,6 @@ function AppContent() {
           <Steps namePlan="add-ons" stepNumber={3} isActive={steps === 3} />
           <Steps namePlan="summary" stepNumber={4} isActive={steps === 4} />
         </div>
-
-        <img
-          src="/images/bg-sidebar-desktop.svg"
-          className={styles.img}
-          alt="sidebar"
-        />
       </div>
 
       <div className={styles.pages}>

@@ -1,4 +1,5 @@
 @use "../../styles/global.scss" as *;
+
 .container {
   width: 50rem;
   gap: 0.5rem;
@@ -40,9 +41,70 @@
   color: $primary-blue-950;
 }
 
-.Button {
+.button {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
+}
+.containerButton {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.containerButtonMobile {
+  display: none;
+}
+
+@media (min-width: $xs) and (max-width: $sm) {
+  .container {
+    width: 20rem;
+    min-width: 17rem;
+    height: 100%;
+    background-color: $white;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0.5rem 1.2rem hsla(229, 24%, 87%, 0.35);
+  }
+  .info {
+    .labelError {
+      font-size: 0.8rem;
+    }
+  }
+
+  .containerButton {
+    display: none;
+  }
+
+  .containerButtonMobile {
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: flex-end;
+    z-index: 50;
+    margin-top: 5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.4rem 1rem;
+
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .containerMobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    align-items: center;
+    position: absolute;
+    top: 5rem;
+    padding: 0 2rem;
+  }
 }

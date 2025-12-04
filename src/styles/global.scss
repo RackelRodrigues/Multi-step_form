@@ -15,10 +15,10 @@ $white: hsl(0, 100%, 100%);
 
 // Breakpoints
 $xl: 1200px; // desktop grande
-$lg: 992px; // desktop normal
+$lg: 1020px; // desktop normal
 $md: 768px; // tablet
 $sm: 576px; // celular grande
-$xs: 380px; // celular pequeno
+$xs: 320px; // celular pequeno
 
 * {
   margin: 0;
@@ -38,4 +38,13 @@ body {
 
 .Subtitle {
   color: $neutral-Grey-500;
+}
+
+@media (min-width: $xs) and (max-width: $sm) {
+  .Title {
+    font-size: 1.8rem;
+  }
+  .Subtitle {
+    font-size: 0.8rem;
+  }
 }

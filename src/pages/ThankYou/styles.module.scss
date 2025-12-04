@@ -13,3 +13,24 @@
   font-weight: 500;
   font-size: 1.3rem;
 }
+
+@media (min-width: $xs) and (max-width: $sm) {
+  .container {
+    width: 20rem;
+    min-width: 18rem;
+    background-color: $white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1.2rem hsla(229, 24%, 87%, 0.35);
+  }
+
+  .containerMobile {
+    position: absolute;
+    top: 5rem;
+  }
+
+  .info {
+    width: 100%;
+    font-size: 1rem;
+  }
+}

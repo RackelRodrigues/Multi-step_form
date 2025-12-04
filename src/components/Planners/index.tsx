@@ -17,7 +17,6 @@ const Planners = ({
   return (
     <div
       onClick={onClick}
-      // onDoubleClick={on}
       className={`${styles.container} ${
         isActive ? styles.isActive : styles.notActive
       }`}

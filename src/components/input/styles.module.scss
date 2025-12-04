@@ -35,3 +35,9 @@
     }
   }
 }
+
+@media (min-width: $xs) and (max-width: $sm) {
+  .Container {
+    height: 2.5rem;
+  }
+}

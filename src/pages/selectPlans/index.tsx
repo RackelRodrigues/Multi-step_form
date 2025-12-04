@@ -30,30 +30,49 @@ const SelectPlans = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}></div>
-      <h1 className="Title">Select your plan</h1>
-      <p className="Subtitle">
-        You have the option of monthly or yearly biling.
-      </p>
-      <div className={styles.planners}>
-        {variablesPlans.map((plan, index) => (
-          <Planners
-            key={index}
-            name={plan.name}
-            imageURL={plan.url}
-            priceMonth={planType === "monthly" ? plan.priceMonth : 0}
-            priceYear={planType === "yearly" ? plan.priceYear : 0}
-            isActive={activePlanPrice?.id === plan.id}
-            hasFrequency={planType === "yearly"}
-            onClick={() => handlePrice(plan)}
-          />
-        ))}
+    <div className={styles.containerMobile}>
+      <div className={styles.container}>
+        <div className={styles.title}></div>
+        <h1 className="Title">Select your plan</h1>
+        <p className="Subtitle">
+          You have the option of monthly or yearly biling.
+        </p>
+        <div className={styles.planners}>
+          {variablesPlans.map((plan, index) => (
+            <Planners
+              key={index}
+              name={plan.name}
+              imageURL={plan.url}
+              priceMonth={planType === "monthly" ? plan.priceMonth : 0}
+              priceYear={planType === "yearly" ? plan.priceYear : 0}
+              isActive={activePlanPrice?.id === plan.id}
+              hasFrequency={planType === "yearly"}
+              onClick={() => handlePrice(plan)}
+            />
+          ))}
+        </div>
+        <div className={styles.switch}>
+          <ToggleSwitch names={nameSwitch} />
+        </div>
+        <div className={styles.containerButtons}>
+          <Button
+            className="primary"
+            disabled={false}
+            onClick={() => setSteps(steps - 1)}
+          >
+            Go back
+          </Button>
+          <Button
+            className="secondary"
+            disabled={!activePlanPrice}
+            onClick={() => setSteps(steps + 1)}
+          >
+            Next step
+          </Button>
+        </div>
       </div>
-      <div className={styles.switch}>
-        <ToggleSwitch names={nameSwitch} />
-      </div>
-      <div className={styles.containerButtons}>
+
+      <div className={styles.containerButtonsMobile}>
         <Button
           className="primary"
           disabled={false}

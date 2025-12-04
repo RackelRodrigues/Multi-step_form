@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: space-between;
 
-  h4 {
+  h2 {
     color: $primary-blue-950;
     font-weight: 700;
     font-size: 1.3rem;
@@ -45,6 +45,12 @@
   }
 }
 
+.containerButtons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .label {
   color: $neutral-Grey-500;
   font-size: 1rem;
@@ -53,7 +59,7 @@
 
 .price {
   color: #000;
-  font-weight: 700;
+  font-size: 1rem;
 }
 
 .total {
@@ -63,5 +69,73 @@
     color: $primary-Purple-600;
     font-size: 1.3rem;
     font-weight: 800;
+  }
+}
+
+.containerButtonsMobile {
+  display: none;
+}
+
+@media (min-width: $xs) and (max-width: $sm) {
+  .containerAll {
+    width: 20rem;
+    min-width: 17rem;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.2rem hsla(229, 24%, 87%, 0.35);
+  }
+  .containerMobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    align-items: center;
+    position: absolute;
+    top: 5rem;
+  }
+  .container {
+    width: 18rem;
+    min-width: 15rem;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  .containerInfo {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+  .label,
+  .price {
+    font-size: 0.8rem;
+  }
+
+  .total {
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  .containerButtons {
+    display: none;
+  }
+  .containerButtonsMobile {
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.1);
   }
 }

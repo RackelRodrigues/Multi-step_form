@@ -1,15 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { PlannersDTO } from "../DTO/PlannersDTO";
-import Planners from "../components/Planners";
 import { AdditionalDTO } from "../DTO/AdditionalDTO";
-// import { AdditionalDTO } from "../DTO/AdditionalDTO";
-
-// type Addon = {
-//   name: string;
-//   description: string;
-//   priceMonth: number;
-//   priceYear: number;
-// };
 
 type GlobalContextType = {
   steps: number;

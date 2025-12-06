@@ -9,22 +9,28 @@ The goal is to build a multi-step form using React, Context API, DTOs, Sass, and
 
 - **React + TypeScript (Create React App)**
 - **Context API (useContext)** — to store and share state across all steps
-- **Sass (SCSS)** — for modular and responsive styling
 - **DTO (Data Transfer Object)** — to organize the project’s data structure and types
+- **Sass (SCSS)** — for modular and responsive styling
+- **react-hook-form** — for fast and efficient form validation
 - **Cypress** — end-to-end interface testing
 - **Basic SEO** — essential metadata for the website
-
+- **js-confetti** — used for the final success animation
 ---
 
 ## 📁 Main Folder Structure
 
 ```bash
-├── components/ # Reusable UI components
-├── contexts/ # useContext to store all form data and state
-├── DTO/ # Data structures and typing (DTOs)
-├── pages/ # Multi-step form pages
-├── server/ # Data logic or mock data
-├── styles/ # Global styling using Sass (SCSS)
+├── components/   # Reusable UI components shared across the application
+├── contexts/     # Global state management using React Context API
+├── lib/          # Utility libraries and helpers (e.g., phone formatting)
+├── DTO/          # Data Transfer Objects and TypeScript interfaces
+├── pages/        # Multi-step form pages (Personal Info, Plan, Add-ons, etc.)
+├── server/       # Mock API logic, data handlers, or service layer
+├── styles/       # Global and modular SCSS styling
+├── utils/        # Pure helper functions and validators
+├── cypress/      # Cypress E2E and component tests
+├── public/       # Static assets (images, icons, favicons)
+└── assets/       # SVGs and design resources
 ```
 
 ## 📦 About the Project

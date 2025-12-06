@@ -10,8 +10,8 @@ const Steps = ({ namePlan, stepNumber, isActive }: Props) => {
         {stepNumber}
       </span>
       <div className={styles.containerNames}>
-        <h4 className={styles.step}>Step {stepNumber}</h4>
-        <h2 className={styles.name}>{namePlan}</h2>
+        <span className={styles.step}>Step {stepNumber}</span>
+        <h1 className={styles.name}>{namePlan}</h1>
       </div>
     </div>
   );

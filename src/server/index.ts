@@ -1,5 +1,3 @@
-import { idText } from "typescript";
-
 export const variablesPlans = [
   {
     id: 0,
@@ -39,7 +37,6 @@ export const variablesAddOns = [
     description: "Extra 1TB of cloud save",
     priceMonth: 2,
     priceYear: 20,
-
     promotion: "2 months free",
   },
   {

@@ -19,12 +19,15 @@
   gap: 1rem;
 }
 
-.buttons {
+.containerButtons {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 1rem;
+}
+.containerButtonsMobile {
+  display: none;
 }
 
 @media (min-width: $xs) and (max-width: $sm) {
@@ -64,5 +67,15 @@
     left: 0;
     padding: 0.4rem 1rem;
     box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (min-width: $md) and (max-width: $lg) {
+  .container {
+    width: 100%;
+    min-width: none;
+  }
+  .containerMobile {
+    width: 100%;
   }
 }

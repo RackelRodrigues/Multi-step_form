@@ -108,3 +108,13 @@
     padding: 0 2rem;
   }
 }
+
+@media (min-width: $md) and (max-width: $lg) {
+  .container {
+    width: 100%;
+    min-width: none;
+  }
+  .containerMobile {
+    width: 100%;
+  }
+}

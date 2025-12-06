@@ -1,8 +1,9 @@
 # Multi-Step Form — Frontend Mentor
 
-Project developed as a Frontend Mentor challenge.  
-The goal is to build a multi-step form using React, Context API, DTOs, Sass, and Cypress for automated end-to-end testing.
+Project developed as a Frontend Mentor challenge.
+The goal is to build a complete multi-step form using modern frontend tools such as React, TypeScript, Context API, DTOs, SCSS, and Cypress for automated end-to-end testing.
 
+This project demonstrates clean architecture, reusable components, global state management, validation handling, and a fully responsive layout.
 ---
 
 ## 🚀 Technologies Used

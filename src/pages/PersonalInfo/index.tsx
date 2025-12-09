@@ -6,7 +6,9 @@ import "../../styles/global.scss";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../contexts/globalContext";
 import { UserDTO } from "../../DTO/UserDTO";
+import { TSignUpSchema, signUpSchema } from "../../lib/type";
 import { formatPhone } from "../../lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const PersonalInfo = () => {
   const { steps, setSteps, name, email, phone, setEmail, setName, setPhone } =
@@ -16,12 +18,8 @@ const PersonalInfo = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-    },
+  } = useForm<TSignUpSchema>({
+    resolver: zodResolver(signUpSchema),
   });
 
   useEffect(() => {
@@ -68,7 +66,7 @@ const PersonalInfo = () => {
                 placeholder="e.g. Stephen King"
                 isError={!!errors.name}
                 aria-invalid={errors.name ? "true" : "false"}
-                {...register("name", { required: "This field is required" })}
+                {...register("name")}
               />
             </Input.Root>
           </div>
@@ -87,7 +85,7 @@ const PersonalInfo = () => {
                 isError={!!errors.email}
                 placeholder="e.g stephenking@loren.com"
                 aria-invalid={errors.email ? "true" : "false"}
-                {...register("email", { required: "This field is required" })}
+                {...register("email")}
               />
             </Input.Root>
           </div>
@@ -107,7 +105,6 @@ const PersonalInfo = () => {
                 placeholder="e.g. +1 234 567 890"
                 aria-invalid={errors.phone ? "true" : "false"}
                 {...register("phone", {
-                  required: "This field is required",
                   onChange: (e) => {
                     const formatted = formatPhone(e.target.value);
                     e.target.value = formatted;

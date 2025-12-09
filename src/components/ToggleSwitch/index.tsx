@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { GlobalContext } from "../../contexts/globalContext";
+import * as Input from "../../components/input";
 
 interface Props {
   names: string[];
@@ -13,16 +14,12 @@ const ToggleSwitch = ({ names }: Props) => {
   useEffect(() => {
     if (steps === 2 && plan === null) {
       setPlanType("monthly");
-      console.log("entrou no if ");
     } else if (steps === 2 && plan !== null) {
       setisChecked(planType === "yearly");
-      console.log("entrou no else if");
     }
   }, [steps]);
 
   const handleClick = () => {
-    console.log("click");
-    console.log(ischecked);
     setisChecked((prev) => !prev);
     ischecked ? setPlanType("monthly") : setPlanType("yearly");
   };
@@ -40,7 +37,7 @@ const ToggleSwitch = ({ names }: Props) => {
         }`}
         onClick={handleClick}
       >
-        <input
+        <Input.Field
           type="checkbox"
           className={styles.input}
           checked={ischecked}

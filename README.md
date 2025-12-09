@@ -14,9 +14,11 @@ This project demonstrates clean architecture, reusable components, global state 
 - **DTO (Data Transfer Object)** — to organize the project’s data structure and types
 - **Sass (SCSS)** — for modular and responsive styling
 - **react-hook-form** — for fast and efficient form validation
+  **Zod** — schema validation for form fields
 - **Cypress** — end-to-end interface testing
 - **Basic SEO** — essential metadata for the website
 - **js-confetti** — used for the final success animation
+
 ---
 
 ## 📁 Main Folder Structure
@@ -24,7 +26,7 @@ This project demonstrates clean architecture, reusable components, global state 
 ```bash
 ├── components/   # Reusable UI components shared across the application
 ├── contexts/     # Global state management using React Context API
-├── lib/          # Utility libraries and helpers (e.g., phone formatting)
+├── lib/          # Utility modules: phone formatting, Zod form validation, and shared helpers
 ├── DTO/          # Data Transfer Objects and TypeScript interfaces
 ├── pages/        # Multi-step form pages (Personal Info, Plan, Add-ons, etc.)
 ├── server/       # Mock API logic, data handlers, or service layer

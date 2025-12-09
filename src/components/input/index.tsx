@@ -11,11 +11,11 @@ export function Root({ ...props }: ContextProps) {
   );
 }
 
-interface Inputprops extends ComponentProps<"input"> {
+interface InputProps extends ComponentProps<"input"> {
   isError?: boolean;
 }
 
-export function Field({ isError, ...props }: Inputprops) {
+export function Field({ isError, ...props }: InputProps) {
   return (
     <input
       className={`${styles.input} ${isError ? styles.inputError : ""}`}

@@ -37,6 +37,10 @@ This project demonstrates clean architecture, reusable components, global state 
 └── assets/       # SVGs and design resources
 ```
 
+## 🧪 Testes
+- Testes de componentes com Jest e React Testing Library
+- Testes end-to-end com Cypress cobrindo o fluxo completo do formulário
+
 ## 📦 About the Project
 
 The goal of this challenge is to build a multi-step form where users can enter personal information, choose a plan, select add-ons, and review the summary before confirmation.  

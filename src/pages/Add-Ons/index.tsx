@@ -5,10 +5,8 @@ import styles from "./styled.module.scss";
 import "../../styles/global.scss";
 import { variablesAddOns } from "../../server/index";
 import { useContext } from "react";
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 import { AdditionalDTO } from "../../DTO/AdditionalDTO";
-
-interface Props extends AdditionalDTO {}
 
 const Addons = () => {
   const { steps, setSteps, addOns, setAddOns, planType } =
@@ -51,7 +49,7 @@ const Addons = () => {
               description={addOn.description}
               priceMonth={planType === "monthly" ? addOn.priceMonth : 0}
               priceYear={planType === "yearly" ? addOn.priceYear : 0}
-              checked={selectedAddOns.some((n) => n.id === addOn.id)}
+              ischecked={selectedAddOns.some((n) => n.id === addOn.id)}
               onClick={() => handleClick(addOn)}
             />
           ))}

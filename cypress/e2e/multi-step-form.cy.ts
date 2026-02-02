@@ -3,6 +3,7 @@
 describe("Multi-step form flow, field validation, and data persistence", () => {
   it.only("should validate the entire multi-step form flow and persist all user selections", () => {
     cy.visit("/");
+    cy.wait(5000);
     cy.contains("Personal Info").should("exist");
     cy.get('input[placeholder="e.g. Stephen King"]').type("Rackel rodrigues", {
       delay: 200,
@@ -115,7 +116,9 @@ describe("Multi-step form flow, field validation, and data persistence", () => {
     cy.contains("Confirm").click();
 
     //Thank You screen
+    cy.wait(5000);
     cy.contains("Thank You!").should("exist");
+    cy.wait(5000);
     cy.contains("Rackel rodrigues").should("be.visible");
   });
 
@@ -237,7 +240,9 @@ describe("Multi-step form flow, field validation, and data persistence", () => {
     cy.get('[class*="containerButtonsMobile"]').contains("Confirm").click();
 
     //Thank You screen
+    cy.wait(5000);
     cy.contains("Thank You!").should("exist");
+    cy.wait(5000);
     cy.contains("Rackel rodrigues").should("be.visible");
   });
 

@@ -21,7 +21,7 @@ const Planners = ({
         isActive ? styles.isActive : styles.notActive
       }`}
     >
-      <img src={imageURL} className={styles.img} />
+      <img src={imageURL} alt={`Foto de ${name}`} className={styles.img} />
       <div className={styles.containerInfo}>
         <h1>{name}</h1>
 

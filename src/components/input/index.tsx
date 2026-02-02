@@ -14,7 +14,6 @@ export function Root({ ...props }: ContextProps) {
 interface InputProps extends ComponentProps<"input"> {
   isError?: boolean;
 }
-
 export function Field({ isError, ...props }: InputProps) {
   return (
     <input

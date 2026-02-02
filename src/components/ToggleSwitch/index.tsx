@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import styles from "./styles.module.scss";
-import { GlobalContext } from "../../contexts/globalContext";
-import * as Input from "../../components/input";
+import { GlobalContext } from "../../contexts/AuthContext";
+import * as Input from "../input";
 
 interface Props {
   names: string[];

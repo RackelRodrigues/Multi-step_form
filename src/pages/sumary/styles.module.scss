@@ -149,3 +149,37 @@
     width: 100%;
   }
 }
+
+@media (min-width: 1600px) {
+  .containerAll {
+    width: 100%;
+  }
+  .container {
+    width: 100rem;
+    a {
+      font-size: 1.8rem;
+    }
+  }
+
+  .containerInfo {
+    h2 {
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .label {
+    font-size: 1.8rem;
+  }
+
+  .price {
+    font-size: 1.8rem;
+  }
+
+  .total {
+    > h3 {
+      font-size: 2rem;
+    }
+  }
+}

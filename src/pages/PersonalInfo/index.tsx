@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { useForm } from "react-hook-form";
 import "../../styles/global.scss";
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 import { UserDTO } from "../../DTO/UserDTO";
 import { TSignUpSchema, signUpSchema } from "../../lib/type";
 import { formatPhone } from "../../lib/utils";

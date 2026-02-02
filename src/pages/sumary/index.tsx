@@ -2,7 +2,7 @@ import Button from "../../components/button";
 import styles from "./styles.module.scss";
 import "../../styles/global.scss";
 import { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 
 const Sumary = () => {
   const [total, setTotal] = useState(0);
@@ -13,12 +13,13 @@ const Sumary = () => {
       addOns?.reduce(
         (acc, addon) =>
           acc + (planType === "monthly" ? addon.priceMonth : addon.priceYear),
-        0
+        0,
       ) ?? 0;
 
     setTotal(
-      (planType === "monthly" ? plan?.priceMonth ?? 0 : plan?.priceYear ?? 0) +
-        totalAddOns
+      (planType === "monthly"
+        ? (plan?.priceMonth ?? 0)
+        : (plan?.priceYear ?? 0)) + totalAddOns,
     );
   };
 

@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import "../../styles/global.scss";
 import JSConfetti from "js-confetti";
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 
 const ThankYou = () => {
   const { name } = useContext(GlobalContext);

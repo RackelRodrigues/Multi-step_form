@@ -1,4 +1,4 @@
-import { GlobalProvider } from "./contexts/globalContext";
+import { GlobalProvider } from "./contexts/AuthContext";
 import AppContent from "./pages/Index";
 
 function App() {

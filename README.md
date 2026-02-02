@@ -15,7 +15,8 @@ This project demonstrates clean architecture, reusable components, global state 
 - **Sass (SCSS)** — for modular and responsive styling
 - **react-hook-form** — for fast and efficient form validation
   **Zod** — schema validation for form fields
-- **Cypress** — end-to-end interface testing
+- **Cypress** — end-to-end (E2E) testing across all application user flows
+- **Jest + React Testing Library** — component testing in React applications
 - **Basic SEO** — essential metadata for the website
 - **js-confetti** — used for the final success animation
 
@@ -29,7 +30,7 @@ This project demonstrates clean architecture, reusable components, global state 
 ├── lib/          # Utility modules: phone formatting, Zod form validation, and shared helpers
 ├── DTO/          # Data Transfer Objects and TypeScript interfaces
 ├── pages/        # Multi-step form pages (Personal Info, Plan, Add-ons, etc.)
-├── server/       # Mock API logic, data handlers, or service layer
+├── server/       # Mock API logic
 ├── styles/       # Global and modular SCSS styling
 ├── utils/        # Pure helper functions and validators
 ├── cypress/      # Cypress E2E and component tests
@@ -38,6 +39,7 @@ This project demonstrates clean architecture, reusable components, global state 
 ```
 
 ## 🧪 Testes
+
 - Testes de componentes com Jest e React Testing Library
 - Testes end-to-end com Cypress cobrindo o fluxo completo do formulário
 

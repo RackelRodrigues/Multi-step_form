@@ -38,6 +38,7 @@ body {
 
 .Subtitle {
   color: $neutral-Grey-500;
+  font-size: 1rem;
 }
 
 @media (min-width: $xs) and (max-width: $sm) {
@@ -46,5 +47,23 @@ body {
   }
   .Subtitle {
     font-size: 0.8rem;
+  }
+}
+
+@media (min-width: $md) and (max-width: $xl) {
+  .Title {
+    font-size: 2.8rem;
+  }
+  .Subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .Title {
+    font-size: 5rem;
+  }
+  .Subtitle {
+    font-size: 2rem;
   }
 }

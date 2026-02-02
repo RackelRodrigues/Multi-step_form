@@ -74,3 +74,30 @@
     }
   }
 }
+
+@media (min-width: 1600px) {
+  .container {
+    width: 100%;
+    // padding: 3rem 4rem;
+
+    input[type="checkbox"] {
+      transform: scale(4);
+      margin-right: 2rem;
+    }
+  }
+
+  .info {
+    // padding: 0 2rem;
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}

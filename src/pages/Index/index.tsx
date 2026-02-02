@@ -7,7 +7,7 @@ import AddOns from "../Add-Ons";
 import Sumary from "../../pages/sumary";
 import ThankYou from "../ThankYou";
 
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 
 function AppContent() {

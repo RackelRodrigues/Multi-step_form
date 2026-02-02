@@ -1,6 +1,7 @@
 import { AdditionalDTO } from "../../DTO/AdditionalDTO";
 
 import styles from "./styles.module.scss";
+import * as Input from "../../components/input";
 
 interface props extends AdditionalDTO {
   onClick?: () => void;
@@ -11,15 +12,15 @@ const Additional = ({
   description,
   priceMonth,
   priceYear,
-  checked,
+  ischecked,
   onClick,
 }: props) => {
   return (
     <div
-      className={`${styles.container} ${checked ? styles.active : ""}`}
+      className={`${styles.container} ${ischecked ? styles.active : ""}`}
       onClick={onClick}
     >
-      <input type="checkbox" checked={checked} readOnly />
+      <Input.Field type="checkbox" checked={ischecked} readOnly />
       <div className={styles.info}>
         <div>
           <h2>{name}</h2>

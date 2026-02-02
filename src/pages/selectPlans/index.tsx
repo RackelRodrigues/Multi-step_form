@@ -1,11 +1,11 @@
 import styles from "./styles.module.scss";
 import Planners from "../../components/Planners";
 import Button from "../../components/button";
-import ToggleSwitch from "../../components/ToggleSwitch";
+import ToggleSwitch from "../../components/toggleSwitch";
 import "../../styles/global.scss";
 import { variablesPlans } from "../../server/index";
 import { useState, useContext, useEffect } from "react";
-import { GlobalContext } from "../../contexts/globalContext";
+import { GlobalContext } from "../../contexts/AuthContext";
 import { PlannersDTO } from "../../DTO/PlannersDTO";
 
 const SelectPlans = () => {
@@ -13,7 +13,7 @@ const SelectPlans = () => {
     useContext(GlobalContext);
 
   const [activePlanPrice, setActivePlanPrice] = useState<PlannersDTO | null>(
-    null
+    null,
   );
 
   const nameSwitch = ["Monthly", " Yearly"];

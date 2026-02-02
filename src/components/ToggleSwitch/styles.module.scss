@@ -1,9 +1,5 @@
 @use "../../styles/global.scss" as *;
 
-interface Props {
-  ischecked: boolean;
-}
-
 .container {
   display: flex;
   flex-direction: row;
@@ -55,4 +51,22 @@ interface Props {
 
 .activeLabel {
   color: $primary-blue-950;
+}
+
+@media (min-width: 1600px) {
+  .toggleSwitchWrapper {
+    width: 5rem;
+    height: 3rem;
+    border-radius: 2rem;
+  }
+
+  .span {
+    width: 2rem;
+    height: 2rem;
+    left: 0.5rem;
+  }
+
+  .label {
+    font-size: 2rem;
+  }
 }

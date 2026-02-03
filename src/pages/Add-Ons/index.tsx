@@ -17,7 +17,7 @@ const Addons = () => {
     if (steps === 3 && addOns !== undefined) {
       setSelectedAddOns(addOns);
     }
-  }, [steps]);
+  }, [steps, addOns]);
 
   function handleClick(Addon: AdditionalDTO) {
     setSelectedAddOns((prev) => {

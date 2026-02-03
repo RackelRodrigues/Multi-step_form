@@ -139,7 +139,16 @@
     box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.1);
   }
 }
-
+.changeButton {
+  border: none;
+  background: none;
+  color: $neutral-Grey-500;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  outline: none;
+}
 @media (min-width: $md) and (max-width: $lg) {
   .container {
     width: 100%;

@@ -17,7 +17,8 @@ const ToggleSwitch = ({ names }: Props) => {
     } else if (steps === 2 && plan !== null) {
       setisChecked(planType === "yearly");
     }
-  }, [steps]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [steps, plan]);
 
   const handleClick = () => {
     setisChecked((prev) => !prev);

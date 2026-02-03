@@ -23,7 +23,7 @@ const Sumary = () => {
     );
   }, [addOns, plan, planType]);
 
-  const changePlan = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const changePlan = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setSteps(2);
   };
@@ -51,9 +51,9 @@ const Sumary = () => {
                 <h2>${plan?.priceYear}/yr</h2>
               )}
             </div>
-            <a href="" onClick={changePlan}>
+            <button className={styles.changeButton} onClick={changePlan}>
               Change
-            </a>
+            </button>
           </div>
 
           <span className={styles.line} />

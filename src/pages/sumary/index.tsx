@@ -30,7 +30,7 @@ const Sumary = () => {
 
   useEffect(() => {
     handleSum();
-  }, [addOns, plan]);
+  }, [addOns, plan, handleSum]);
   return (
     <div className={styles.containerMobile}>
       <div className={styles.containerAll}>

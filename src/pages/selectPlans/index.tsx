@@ -9,7 +9,7 @@ import { GlobalContext } from "../../contexts/AuthContext";
 import { PlannersDTO } from "../../DTO/PlannersDTO";
 
 const SelectPlans = () => {
-  const { steps, setSteps, setPlan, plan, setPlanType, planType } =
+  const { steps, setSteps, setPlan, plan, planType } =
     useContext(GlobalContext);
 
   const [activePlanPrice, setActivePlanPrice] = useState<PlannersDTO | null>(
@@ -22,7 +22,7 @@ const SelectPlans = () => {
     if (plan !== null && steps === 2) {
       setActivePlanPrice(plan);
     }
-  }, [steps]);
+  }, [steps, plan]);
 
   const handlePrice = (plan: PlannersDTO) => {
     setActivePlanPrice(plan);

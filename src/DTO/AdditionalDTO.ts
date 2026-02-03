@@ -4,5 +4,5 @@ export interface AdditionalDTO {
   description: string;
   priceMonth: number;
   priceYear: number;
-  checked?: boolean;
+  ischecked?: boolean;
 }

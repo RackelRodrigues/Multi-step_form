@@ -1,14 +1,14 @@
 import Button from "../../components/button";
 import styles from "./styles.module.scss";
 import "../../styles/global.scss";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../contexts/AuthContext";
 
 const Sumary = () => {
   const [total, setTotal] = useState(0);
   const { steps, setSteps, addOns, plan, planType } = useContext(GlobalContext);
 
-  const handleSum = () => {
+  const handleSum = useCallback(() => {
     const totalAddOns =
       addOns?.reduce(
         (acc, addon) =>
@@ -21,7 +21,7 @@ const Sumary = () => {
         ? (plan?.priceMonth ?? 0)
         : (plan?.priceYear ?? 0)) + totalAddOns,
     );
-  };
+  }, [addOns, plan, planType]);
 
   const changePlan = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

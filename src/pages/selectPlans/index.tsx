@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import Planners from "../../components/planners";
+import Planners from "../../components/Planners";
 import Button from "../../components/button";
 import ToggleSwitch from "../../components/ToggleSwitch";
 import "../../styles/global.scss";

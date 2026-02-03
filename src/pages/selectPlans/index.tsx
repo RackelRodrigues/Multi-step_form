@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
-import Planners from "../../components/Planners";
+import Planners from "../../components/planners";
 import Button from "../../components/button";
-import ToggleSwitch from "../../components/toggleSwitch";
+import ToggleSwitch from "../../components/ToggleSwitch";
 import "../../styles/global.scss";
 import { variablesPlans } from "../../server/index";
 import { useState, useContext, useEffect } from "react";
